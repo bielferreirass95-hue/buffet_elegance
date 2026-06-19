@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buffet Elegance</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --vinho:#5C1A1B;
+    --dourado:#C8A96A;
+    --bege:#F8F5F0;
+    --cinza:#333333;
+    --cinza-claro:#777777;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:var(--bege);
+    color:var(--cinza);
+}
+
+header{
+    background:#ffffff;
+    border-bottom:1px solid #e5e5e5;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:var(--vinho);
+    letter-spacing:1px;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+}
+
+.hero-image{
+    min-height:450px;
+}
+
+.hero-image img{
+    width:100%;
+    height:450px;
+    display:block;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.menu a{
+    text-decoration:none;
+    color:var(--cinza);
+    font-weight:500;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:var(--vinho);
+}
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero-text{
+    animation:fadeUp 0.8s ease;
+}
+
+.hero-text span{
+    color:var(--dourado);
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:14px;
+}
+
+.hero-text h1{
+    font-size:52px;
+    line-height:1.2;
+    margin:15px 0;
+    color:var(--vinho);
+}
+
+.hero-text p{
+    font-size:18px;
+    color:var(--cinza-claro);
+    margin-bottom:30px;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--vinho);
+    color:white;
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:4px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    opacity:0.9;
+    transform:translateY(-2px);
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    color:var(--vinho);
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:var(--cinza-claro);
+}
+
+.sobre{
+    max-width:1000px;
+    margin:auto;
+    padding:80px 40px;
+    text-align:center;
+}
+
+.sobre p{
+    line-height:2;
+    color:var(--cinza-claro);
+    font-size:17px;
+}
+
+/* DIFERENCIAIS */
+
+.diferenciais{
+    background:white;
+    padding:70px 40px;
+}
+
+.diferenciais-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.diferencial{
+    text-align:center;
+    padding:35px;
+    border:1px solid #ececec;
+    transition:0.3s;
+}
+
+.diferencial:hover{
+    transform:translateY(-5px);
+}
+
+.diferencial h3{
+    color:var(--vinho);
+    margin-bottom:10px;
+}
+
+.diferencial p{
+    color:var(--cinza-claro);
+}
+
+/* SERVIÇOS */
+
+.servicos{
+    padding:80px 40px;
+}
+
+.cards{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-bottom: 60px; /* Espaço para a nova seção de portes/valores */
+}
+
+.card{
+    background:white;
+    border:1px solid #ececec;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    color:var(--vinho);
+    margin-bottom:12px;
+}
+
+.card-content p{
+    color:var(--cinza-claro);
+    line-height:1.7;
+}
+
+/* ESTILIZAÇÃO DOS VALORES E PORTES */
+.subtitle-portes {
+    text-align: center;
+    color: var(--vinho);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.portes-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.porte-card {
+    background: white;
+    border: 1px solid #ececec;
+    border-top: 4px solid var(--dourado); /* Detalhe sofisticado no topo */
+    padding: 40px 30px;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 0 0 4px 4px;
+}
+
+.porte-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.porte-card h4 {
+    font-size: 20px;
+    color: var(--vinho);
+    margin-bottom: 5px;
+}
+
+.porte-card .capacidade {
+    font-size: 14px;
+    color: var(--dourado);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.porte-card .preco-box {
+    margin: 15px 0;
+}
+
+.porte-card .preco-prefixo {
+    font-size: 14px;
+    color: var(--cinza-claro);
+    display: block;
+}
+
+.porte-card .preco {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--vinho);
+}
+
+.porte-card .preco-sufixo {
+    font-size: 14px;
+    color: var(--cinza-claro);
+}
+
+.porte-card p {
+    font-size: 14px;
+    color: var(--cinza-claro);
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+/* GALERIA */
+
+.galeria{
+    padding:80px 40px;
+    background:white;
+}
+
+.galeria-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.galeria-grid img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:0.3s;
+}
+
+.galeria-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* CONTATO */
+
+.contato{
+    padding:80px 40px;
+}
+
+.contato-box{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.contato-box p{
+    margin:15px 0;
+    font-size:18px;
+    color:var(--cinza-claro);
+}
+
+/* FOOTER */
+
+footer{
+    background:#1f1f1f;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* ANIMAÇÃO SUAVE */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .cards, .portes-grid{
+        grid-template-columns:1fr;
+    }
+
+    .diferenciais-grid{
+        grid-template-columns:1fr;
+    }
+
+    .galeria-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-text h1{
+        font-size:38px;
+    }
+}
+
+@media(max-width:600px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .menu{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .galeria-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">BUFFET ELEGANCE</div>
+
+        <div class="menu">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span>Eventos Exclusivos</span>
+
+        <h1>Transformamos celebrações em experiências memoráveis.</h1>
+
+        <p>
+            Planejamento, gastronomia e atendimento de excelência para
+            casamentos, aniversários e eventos corporativos.
+        </p>
+
+        <a href="#contato" class="btn">
+            Solicitar Orçamento
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+    <img
+        src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=80"
+        alt="Evento de Buffet"
+        loading="eager">
+        
+</div>
+
+</section>
+
+<section id="sobre" class="sobre">
+
+    <div class="section-title">
+        <h2>Sobre Nós</h2>
+        <p>Excelência em cada detalhe.</p>
+    </div>
+
+    <p>
+        Há anos realizamos eventos com alto padrão de qualidade,
+        oferecendo cardápios personalizados, equipe especializada
+        e uma estrutura preparada para tornar cada ocasião única.
+        Nossa missão é proporcionar momentos especiais e inesquecíveis
+        para nossos clientes e convidados.
+    </p>
+
+</section>
+
+<section class="diferenciais">
+
+    <div class="section-title">
+        <h2>Nossos Diferenciais</h2>
+        <p>Compromisso, qualidade e sofisticação.</p>
+    </div>
+
+    <div class="diferenciais-grid">
+
+        <div class="diferencial">
+            <h3>+500 Eventos</h3>
+            <p>Experiência comprovada em diferentes tipos de celebrações.</p>
+        </div>
+
+        <div class="diferencial">
+            <h3>Equipe Especializada</h3>
+            <p>Profissionais treinados para oferecer excelência no atendimento.</p>
+        </div>
+
+        <div class="diferencial">
+            <h3>Cardápio Personalizado</h3>
+            <p>Menus adaptados ao perfil e necessidades de cada cliente.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="servicos" class="servicos">
+
+    <div class="section-title">
+        <h2>Serviços</h2>
+        <p>Soluções completas para seu evento.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="">
+            <div class="card-content">
+                <h3>Casamentos</h3>
+                <p>Planejamento e buffet completos para cerimônias e recepções sofisticadas.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=80" alt="">
+            <div class="card-content">
+                <h3>Aniversários</h3>
+                <p>Festas personalizadas para todas as idades com atendimento diferenciado.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="">
+            <div class="card-content">
+                <h3>Eventos Corporativos</h3>
+                <p>Estrutura completa para reuniões, palestras e confraternizações empresariais.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- NOVA SEÇÃO: PORTES E VALORES DO VALOR REQUISITADO -->
+    <h3 class="subtitle-portes">Porte dos Eventos & Investimento</h3>
+    
+    <div class="portes-grid">
+        
+        <div class="porte-card">
+            <h4>Evento Pequeno</h4>
+            <span class="capacidade">Até 100 pessoas</span>
+            <div class="preco-box">
+                <span class="preco-prefixo">A partir de</span>
+                <span class="preco">R$ 12.500</span>
+                <span class="preco-sufixo">/ total</span>
+            </div>
+            <p>Ideal para mini-weddings, aniversários intimistas e reuniões executivas corporativas.</p>
+        </div>
+
+        <div class="porte-card">
+            <h4>Evento Médio</h4>
+            <span class="capacidade">De 101 até 200 pessoas</span>
+            <div class="preco-box">
+                <span class="preco-prefixo">A partir de</span>
+                <span class="preco">R$ 24.000</span>
+                <span class="preco-sufixo">/ total</span>
+            </div>
+            <p>Perfeito para casamentos tradicionais e jantares empresariais de médio porte.</p>
+        </div>
+
+        <div class="porte-card">
+            <h4>Evento Grande</h4>
+            <span class="capacidade">Acima de 200 pessoas</span>
+            <div class="preco-box">
+                <span class="preco-prefixo">A partir de</span>
+                <span class="preco">R$ 42.000</span>
+                <span class="preco-sufixo">/ total</span>
+            </div>
+            <p>Estrutura máxima com gastronomia de ponta para grandes galas, formaturas e grandes corporações.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="galeria" class="galeria">
+
+    <div class="section-title">
+        <h2>Galeria</h2>
+        <p>Alguns momentos especiais.</p>
+    </div>
+
+    <div class="galeria-grid">
+
+        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1000&q=80" alt="">
+
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80" alt="">
+
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=80" alt="">
+
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="">
+
+    </div>
+
+</section>
+
+<section id="contato" class="contato">
+
+    <div class="section-title">
+        <h2>Contato</h2>
+        <p>Solicite um orçamento personalizado.</p>
+    </div>
+
+    <div class="contato-box">
+        <p> (11) 99999-9999</p>
+        <p> contato@buffetelegance.com.br</p>
+        <p> São Paulo - SP</p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Buffet Elegance • Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
